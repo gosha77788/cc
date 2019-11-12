@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="2019-11-10-17-52-00" author="YuryGovorushkin">
+
+        <createTable tableName="product_owner">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="product_owner_pkey"/>
+            </column>
+            <column name="full_name" type="varchar(256)"/>
+            <column name="short_name" type="varchar(32)"/>
+            <column name="upn" type="bigint"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+
+        <createTable tableName="employee">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" foreignKeyName="employee_pkey"/>
+            </column>
+            <column name="full_name" type="varchar(256)"/>
+            <column name="location" type="varchar(32)"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+
+        <createTable tableName="product">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="product_pkey"/>
+            </column>
+            <column name="short_name" type="varchar(32)"/>
+            <column name="description" type="varchar(256)"/>
+            <column name="code" type="varchar(256)"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+
+        <createTable tableName="price">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="price_pk"/>
+            </column>
+            <column name="start_at" type="timestamp"/>
+            <column name="stop_at" type="timestamp"/>
+            <column name="product_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="price_fkey"
+                             referencedTableName="product"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="value" type="bigint"/>
+        </createTable>
+
+        <createTable tableName="work_report">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="work_report_pkey"/>
+            </column>
+            <column name="employee_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="work_report_employee_fkey"
+                             referencedTableName="employee"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="product_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="work_report_product_fkey"
+                             referencedTableName="product"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="done_at" type="timestamp"/>
+            <column name="amount" type="bigint"/>
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>
