@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service;
 public class ProductOwnerMapperImpl implements ProductOwnerMapper {
 
     @Override
-    public ProductOwnerDto toDto(ProductOwner product) {
+    public ProductOwnerDto toDto(ProductOwner productOwner) {
         ProductOwnerDto productOwnerDto = new ProductOwnerDto();
-        productOwnerDto.setId(product.getId());
-        productOwnerDto.setFullName(product.getFullName());
-        productOwnerDto.setShortName(product.getShortName());
-        productOwnerDto.setUpn(product.getUpn());
+        productOwnerDto.setId(productOwner.getId());
+        productOwnerDto.setFullName(productOwner.getFullName());
+        productOwnerDto.setShortName(productOwner.getShortName());
+        productOwnerDto.setUpn(productOwner.getUpn());
         return productOwnerDto;
     }
 

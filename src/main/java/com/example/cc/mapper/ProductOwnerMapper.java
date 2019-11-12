@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProductOwnerMapper {
 
-    ProductOwnerDto toDto(ProductOwner product);
+    ProductOwnerDto toDto(ProductOwner productOwner);
 
     ProductOwner toEntity(ProductOwnerDto dto);
 

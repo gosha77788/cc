@@ -1,5 +1,6 @@
 package com.example.cc.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
@@ -15,7 +16,6 @@ import javax.persistence.TemporalType;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 
 @Entity
 @Data
@@ -37,7 +37,7 @@ public class Product {
 
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "update_at")
+    @Column(name = "updated_at")
     private Date updatedAt;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
