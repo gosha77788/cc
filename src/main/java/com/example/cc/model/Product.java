@@ -45,5 +45,4 @@ public class Product {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     private List<WorkReport> workReports;
-
 }

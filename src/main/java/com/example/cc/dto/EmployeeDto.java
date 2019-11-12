@@ -10,5 +10,4 @@ public class EmployeeDto {
     private Long id;
     private String fullName;
     private String location;
-
 }

@@ -27,5 +27,4 @@ public class Price {
     @JoinColumn(name = "product_id")
     private Product product;
     private Long value;
-
 }
