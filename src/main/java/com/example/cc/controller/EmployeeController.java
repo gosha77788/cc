@@ -1,7 +1,8 @@
 package com.example.cc.controller;
 
 import com.example.cc.dto.EmployeeDto;
-import com.example.cc.exception.IdException;
+import com.example.cc.exception.CreatedEntityIdException;
+import com.example.cc.exception.UpdatedEntityIdException;
 import com.example.cc.mapper.EmployeeMapper;
 import com.example.cc.service.EmployeeService;
 import java.util.List;
@@ -36,18 +37,18 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public void saveEmployee(@RequestBody EmployeeDto employeeDto) throws IdException {
+    public void saveEmployee(@RequestBody EmployeeDto employeeDto) throws CreatedEntityIdException {
         if (employeeDto.getId() != null) {
-            throw new IdException("При добавлении нового сотрудника ID не указывается", employeeDto.getId());
+            throw new CreatedEntityIdException();
         }
         employeeService.saveEmployee(employeeMapper.toEntity(employeeDto));
 
     }
 
     @PutMapping
-    public void updateEmployee(@RequestBody EmployeeDto employeeDto) throws IdException {
+    public void updateEmployee(@RequestBody EmployeeDto employeeDto) throws UpdatedEntityIdException {
         if (employeeDto.getId() == null) {
-            throw new IdException("При изменении сотрудника требуется указать ID", employeeDto.getId());
+            throw new UpdatedEntityIdException();
         }
         employeeService.saveEmployee(employeeMapper.toEntity(employeeDto));
     }
