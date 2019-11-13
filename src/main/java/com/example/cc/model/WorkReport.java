@@ -35,5 +35,4 @@ public class WorkReport {
 
     private LocalDate doneAt;
     private Long amount;
-
 }

@@ -11,5 +11,4 @@ public class ProductOwnerDto {
     private String fullName;
     private String shortName;
     private Long upn;
-
 }

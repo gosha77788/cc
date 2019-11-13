@@ -11,5 +11,4 @@ public class ProductDto {
     private String shortName;
     private String description;
     private String code;
-
 }
