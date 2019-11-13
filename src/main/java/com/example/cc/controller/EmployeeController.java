@@ -37,19 +37,18 @@ public class EmployeeController {
 
     @PostMapping
     public void saveEmployee(@RequestBody EmployeeDto employeeDto) throws IdException {
-        if (employeeDto.getId() == null) {
-            employeeService.saveEmployee(employeeMapper.toEntity(employeeDto));
-        } else {
+        if (employeeDto.getId() != null) {
             throw new IdException("При добавлении нового сотрудника ID не указывается", employeeDto.getId());
         }
+        employeeService.saveEmployee(employeeMapper.toEntity(employeeDto));
+
     }
 
     @PutMapping
-    public void updateProduct(@RequestBody EmployeeDto productDto) throws IdException {
-        if (productDto.getId() != null) {
-            employeeService.saveEmployee(employeeMapper.toEntity(productDto));
-        } else {
-            throw new IdException("При изменении сотрудника требуется указать ID", productDto.getId());
+    public void updateEmployee(@RequestBody EmployeeDto employeeDto) throws IdException {
+        if (employeeDto.getId() == null) {
+            throw new IdException("При изменении сотрудника требуется указать ID", employeeDto.getId());
         }
+        employeeService.saveEmployee(employeeMapper.toEntity(employeeDto));
     }
 }

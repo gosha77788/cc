@@ -37,19 +37,17 @@ public class ProductController {
 
     @PostMapping
     public void saveProduct(@RequestBody ProductDto productDto) throws IdException {
-        if (productDto.getId() == null) {
-            productService.saveProduct(productMapper.toEntity(productDto));
-        } else {
+        if (productDto.getId() != null) {
             throw new IdException("При добавлении нового сотрудника ID не указывается", productDto.getId());
         }
+        productService.saveProduct(productMapper.toEntity(productDto));
     }
 
     @PutMapping
     public void updateProduct(@RequestBody ProductDto productDto) throws IdException {
-        if (productDto.getId() != null) {
-            productService.saveProduct(productMapper.toEntity(productDto));
-        } else {
+        if (productDto.getId() == null) {
             throw new IdException("При изменении сотрудника требуется указать ID", productDto.getId());
         }
+        productService.saveProduct(productMapper.toEntity(productDto));
     }
 }
