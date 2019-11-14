@@ -1,6 +1,5 @@
 package com.example.cc.model;
 
-import java.time.LocalDate;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,6 +32,10 @@ public class WorkReport {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    private LocalDate doneAt;
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "done_at", updatable = false)
+    private Date doneAt;
+
     private Long amount;
 }
