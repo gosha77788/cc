@@ -1,6 +1,6 @@
 package com.example.cc.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -35,7 +35,7 @@ public class WorkReport {
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "done_at", updatable = false)
-    private Date doneAt;
+    private LocalDateTime doneAt;
 
     private Long amount;
 }
