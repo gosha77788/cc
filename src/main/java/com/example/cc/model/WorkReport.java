@@ -33,7 +33,6 @@ public class WorkReport {
     private Product product;
 
     @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "done_at", updatable = false)
     private LocalDateTime doneAt;
 
