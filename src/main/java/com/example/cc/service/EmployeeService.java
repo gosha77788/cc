@@ -20,7 +20,7 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
-    public Employee findEmployee(Long id) {
+    public Employee getEmployee(Long id) {
         return employeeRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 

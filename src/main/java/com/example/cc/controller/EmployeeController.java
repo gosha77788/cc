@@ -33,7 +33,7 @@ public class EmployeeController {
 
     @GetMapping("{id}")
     public EmployeeDto getEmployee(@PathVariable Long id) {
-        return employeeMapper.toDto(employeeService.findEmployee(id));
+        return employeeMapper.toDto(employeeService.getEmployee(id));
     }
 
     @PostMapping
