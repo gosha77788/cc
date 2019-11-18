@@ -32,7 +32,7 @@ public class WorkReportController {
     }
 
     @GetMapping("{id}")
-    public WorkReportDto getProduct(@PathVariable Long id) {
+    public WorkReportDto getWorkReport(@PathVariable Long id) {
         return workReportMapper.toDto(workReportService.getWorkReport(id));
     }
 
