@@ -27,7 +27,7 @@ public class LocationMapperImpl implements LocationMapper {
     }
 
     @Override
-    public List<LocationDto> toDtos(List<Location> location) {
-        return location.stream().map(this::toDto).collect(Collectors.toList());
+    public List<LocationDto> toDtos(List<Location> locations) {
+        return locations.stream().map(this::toDto).collect(Collectors.toList());
     }
 }
