@@ -5,9 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class EmployeeDto {
+public class LocationDto {
 
     private Long id;
-    private String fullName;
-    private LocationDto location;
+    private String value;
 }

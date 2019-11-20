@@ -73,4 +73,31 @@
 
     </changeSet>
 
+    <changeSet id="2019-11-18-21-33-00" author="YuryGovorushkin">
+
+        <createTable tableName="location">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="location_pkey"/>
+            </column>
+            <column name="value" type="varchar(256)"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet id="2019-11-18-21-38-00" author="YuryGovorushkin">
+
+        <dropColumn tableName="employee">
+            <column name="location" type="varchar(32)"/>
+        </dropColumn>
+
+        <addColumn tableName="employee">
+            <column name="location_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="employee_location_fkey"
+                             referencedTableName="location"
+                             referencedColumnNames="id"/>
+            </column>
+        </addColumn>
+
+    </changeSet>
+
 </databaseChangeLog>
