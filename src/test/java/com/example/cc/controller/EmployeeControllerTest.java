@@ -43,11 +43,16 @@ class EmployeeControllerTest {
 
     private final String URL = "/employee";
 
-    @Test
-    void getAllEmployee() throws Exception {
+    private EmployeeDto employeeDtoBuild() {
         EmployeeDto employeeDto = new EmployeeDto();
         employeeDto.setId(1L);
         employeeDto.setFullName("Yura");
+        return employeeDto;
+    }
+
+    @Test
+    void testGetAllEmployee() throws Exception {
+        EmployeeDto employeeDto = employeeDtoBuild();
 
         List<EmployeeDto> employeedtos = Arrays.asList(employeeDto);
 
@@ -60,10 +65,8 @@ class EmployeeControllerTest {
     }
 
     @Test
-    void getEmployee() throws Exception {
-        EmployeeDto employeeDto = new EmployeeDto();
-        employeeDto.setId(1L);
-        employeeDto.setFullName("Yura");
+    void testGetEmployee() throws Exception {
+        EmployeeDto employeeDto = employeeDtoBuild();
 
         doReturn(new Employee()).when(employeeService).getEmployee(anyLong());
         doReturn(employeeDto).when(employeeMapper).toDto(any(Employee.class));
@@ -74,10 +77,8 @@ class EmployeeControllerTest {
     }
 
     @Test
-    void saveEmployee() throws Exception {
-        EmployeeDto employeeDto = new EmployeeDto();
-        employeeDto.setId(null);
-        employeeDto.setFullName("Yura");
+    void testSaveEmployee() throws Exception {
+        EmployeeDto employeeDto = employeeDtoBuild();
 
         doNothing().when(employeeService).saveEmployee(any(Employee.class));
         doReturn(new Employee()).when(employeeMapper).toEntity(employeeDto);
@@ -89,10 +90,8 @@ class EmployeeControllerTest {
     }
 
     @Test
-    void updateEmployee() throws Exception {
-        EmployeeDto employeeDto = new EmployeeDto();
-        employeeDto.setId(1L);
-        employeeDto.setFullName("Yura");
+    void TestUpdateEmployee() throws Exception {
+        EmployeeDto employeeDto = employeeDtoBuild();
 
         doNothing().when(employeeService).saveEmployee(any(Employee.class));
         doReturn(new Employee()).when(employeeMapper).toEntity(employeeDto);
