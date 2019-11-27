@@ -65,10 +65,10 @@ class EmployeeControllerTest {
         employeeDto.setId(1L);
         employeeDto.setFullName("Yura");
 
-        doReturn(Optional.of(new Employee())).when(employeeService).getEmployee(anyLong());
+        doReturn(new Employee()).when(employeeService).getEmployee(anyLong());
         doReturn(employeeDto).when(employeeMapper).toDto(any(Employee.class));
 
-        mockMvc.perform(get(URL))
+        mockMvc.perform(get("/employee/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.fullName", is(employeeDto.getFullName())));
     }
