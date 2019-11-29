@@ -42,16 +42,16 @@ class EmployeeControllerTest {
 
     private final String URL = "/employee";
 
-    private EmployeeDto employeeDtoBuild() {
+    private EmployeeDto employeeDtoBuild(Long id) {
         EmployeeDto employeeDto = new EmployeeDto();
-        employeeDto.setId(1L);
+        employeeDto.setId(id);
         employeeDto.setFullName("Yura");
         return employeeDto;
     }
 
     @Test
     void testGetAllEmployee() throws Exception {
-        EmployeeDto employeeDto = employeeDtoBuild();
+        EmployeeDto employeeDto = employeeDtoBuild(1L);
 
         List<EmployeeDto> employeedtos = Arrays.asList(employeeDto);
 
@@ -65,7 +65,7 @@ class EmployeeControllerTest {
 
     @Test
     void testGetEmployee() throws Exception {
-        EmployeeDto employeeDto = employeeDtoBuild();
+        EmployeeDto employeeDto = employeeDtoBuild(1L);
 
         doReturn(new Employee()).when(employeeService).getEmployee(anyLong());
         doReturn(employeeDto).when(employeeMapper).toDto(any(Employee.class));
@@ -77,7 +77,7 @@ class EmployeeControllerTest {
 
     @Test
     void testSaveEmployee() throws Exception {
-        EmployeeDto employeeDto = employeeDtoBuild();
+        EmployeeDto employeeDto = employeeDtoBuild(null);
 
         doNothing().when(employeeService).saveEmployee(any(Employee.class));
         doReturn(new Employee()).when(employeeMapper).toEntity(employeeDto);
@@ -90,7 +90,7 @@ class EmployeeControllerTest {
 
     @Test
     void TestUpdateEmployee() throws Exception {
-        EmployeeDto employeeDto = employeeDtoBuild();
+        EmployeeDto employeeDto = employeeDtoBuild(1L);
 
         doNothing().when(employeeService).saveEmployee(any(Employee.class));
         doReturn(new Employee()).when(employeeMapper).toEntity(employeeDto);
