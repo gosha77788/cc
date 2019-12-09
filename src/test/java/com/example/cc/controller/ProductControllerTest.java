@@ -59,7 +59,7 @@ class ProductControllerTest {
 
         mockMvc.perform(get(URL))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].shortName", is(productDto.getShortName())));
+                .andExpect(jsonPath("$[0].shortName").value("goods"));
 
     }
 
@@ -70,9 +70,9 @@ class ProductControllerTest {
         doReturn(new Product()).when(productService).getProduct(anyLong());
         doReturn(productDto).when(productMapper).toDto(any(Product.class));
 
-        mockMvc.perform(get("/product/1"))
+        mockMvc.perform(get(URL + "/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.shortName", is(productDto.getShortName())));
+                .andExpect(jsonPath("$.shortName").value("goods"));
     }
 
     @Test

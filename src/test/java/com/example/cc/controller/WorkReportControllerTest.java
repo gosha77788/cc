@@ -68,7 +68,7 @@ class WorkReportControllerTest {
         doReturn(new WorkReport()).when(workReportService).getWorkReport(anyLong());
         doReturn(workReportDto).when(workReportMapper).toDto(any(WorkReport.class));
 
-        mockMvc.perform(get("/workreport/1"))
+        mockMvc.perform(get(URL + "/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.amount").value(2));
     }

@@ -60,7 +60,7 @@ class EmployeeControllerTest {
 
         mockMvc.perform(get(URL))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].fullName", is(employeeDto.getFullName())));
+                .andExpect(jsonPath("$[0].fullName").value("Yura"));
     }
 
     @Test
@@ -70,9 +70,9 @@ class EmployeeControllerTest {
         doReturn(new Employee()).when(employeeService).getEmployee(anyLong());
         doReturn(employeeDto).when(employeeMapper).toDto(any(Employee.class));
 
-        mockMvc.perform(get("/employee/1"))
+        mockMvc.perform(get(URL + "/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.fullName", is(employeeDto.getFullName())));
+                .andExpect(jsonPath("$.fullName").value("Yura"));
     }
 
     @Test

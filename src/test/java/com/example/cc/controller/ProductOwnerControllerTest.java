@@ -59,7 +59,7 @@ class ProductOwnerControllerTest {
 
         mockMvc.perform(get(URL))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].fullName", is(productOwnerDto.getFullName())));
+                .andExpect(jsonPath("$[0].fullName").value("goods"));
     }
 
     @Test
@@ -69,9 +69,9 @@ class ProductOwnerControllerTest {
         doReturn(new ProductOwner()).when(productOwnerService).getProductOwner(anyLong());
         doReturn(productOwnerDto).when(productOwnerMapper).toDto(any(ProductOwner.class));
 
-        mockMvc.perform(get("/productowner/1"))
+        mockMvc.perform(get(URL + "/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.fullName", is(productOwnerDto.getFullName())));
+                .andExpect(jsonPath("$.fullName").value("goods"));
     }
 
     @Test

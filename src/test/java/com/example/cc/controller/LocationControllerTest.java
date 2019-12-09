@@ -59,7 +59,7 @@ class LocationControllerTest {
 
         mockMvc.perform(get(URL))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].value", is(locationDto.getValue())));
+                .andExpect(jsonPath("$[0].value").value("Gomel"));
     }
 
     @Test
@@ -69,9 +69,9 @@ class LocationControllerTest {
         doReturn(new Location()).when(locationService).getLocation(anyLong());
         doReturn(locationDto).when(locationMapper).toDto(any(Location.class));
 
-        mockMvc.perform(get("/location/1"))
+        mockMvc.perform(get(URL + "/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.value", is(locationDto.getValue())));
+                .andExpect(jsonPath("$.value").value("Gomel"));
     }
 
     @Test
