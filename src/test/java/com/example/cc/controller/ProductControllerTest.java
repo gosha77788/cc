@@ -58,7 +58,7 @@ class ProductControllerTest {
 
         mockMvc.perform(get(URL))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].shortName").value("goods"));
+                .andExpect(jsonPath("$[0].shortName").value(productDto.getShortName()));
 
     }
 
@@ -71,7 +71,7 @@ class ProductControllerTest {
 
         mockMvc.perform(get(URL + "/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.shortName").value("goods"));
+                .andExpect(jsonPath("$.shortName").value(productDto.getShortName()));
     }
 
     @Test

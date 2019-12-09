@@ -58,7 +58,7 @@ class LocationControllerTest {
 
         mockMvc.perform(get(URL))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].value").value("Gomel"));
+                .andExpect(jsonPath("$[0].value").value(locationDto.getValue()));
     }
 
     @Test
@@ -70,7 +70,7 @@ class LocationControllerTest {
 
         mockMvc.perform(get(URL + "/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.value").value("Gomel"));
+                .andExpect(jsonPath("$.value").value(locationDto.getValue()));
     }
 
     @Test

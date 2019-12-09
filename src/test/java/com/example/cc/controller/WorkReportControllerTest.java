@@ -58,7 +58,7 @@ class WorkReportControllerTest {
 
         mockMvc.perform(get(URL))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].amount").value(2));
+                .andExpect(jsonPath("$[0].amount").value(workReportDto.getAmount()));
     }
 
     @Test
@@ -70,7 +70,7 @@ class WorkReportControllerTest {
 
         mockMvc.perform(get(URL + "/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.amount").value(2));
+                .andExpect(jsonPath("$.amount").value(workReportDto.getAmount()));
     }
 
     @Test

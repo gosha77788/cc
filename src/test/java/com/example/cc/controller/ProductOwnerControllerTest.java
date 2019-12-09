@@ -58,7 +58,7 @@ class ProductOwnerControllerTest {
 
         mockMvc.perform(get(URL))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].fullName").value("goods"));
+                .andExpect(jsonPath("$[0].fullName").value(productOwnerDto.getFullName()));
     }
 
     @Test
@@ -70,7 +70,7 @@ class ProductOwnerControllerTest {
 
         mockMvc.perform(get(URL + "/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.fullName").value("goods"));
+                .andExpect(jsonPath("$.fullName").value(productOwnerDto.getFullName()));
     }
 
     @Test
