@@ -1,7 +1,7 @@
-package com.example.cc.mapper.impl;
+package com.example.cc.service.mapper.impl;
 
-import com.example.cc.dto.ProductDto;
-import com.example.cc.mapper.ProductMapper;
+import com.example.cc.service.dto.ProductDto;
+import com.example.cc.service.mapper.ProductMapper;
 import com.example.cc.model.Product;
 import java.util.List;
 import java.util.stream.Collectors;

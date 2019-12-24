@@ -1,10 +1,10 @@
 package com.example.cc.controller;
 
-import com.example.cc.dto.WorkReportDto;
 import com.example.cc.exception.CreatedEntityIdException;
 import com.example.cc.exception.UpdatedEntityIdException;
-import com.example.cc.mapper.WorkReportMapper;
 import com.example.cc.service.WorkReportService;
+import com.example.cc.service.dto.WorkReportDto;
+import com.example.cc.service.mapper.WorkReportMapper;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

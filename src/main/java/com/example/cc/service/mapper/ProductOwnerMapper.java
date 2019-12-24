@@ -1,6 +1,6 @@
-package com.example.cc.mapper;
+package com.example.cc.service.mapper;
 
-import com.example.cc.dto.ProductOwnerDto;
+import com.example.cc.service.dto.ProductOwnerDto;
 import com.example.cc.model.ProductOwner;
 import java.util.List;
 

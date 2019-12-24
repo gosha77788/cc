@@ -1,6 +1,6 @@
-package com.example.cc.mapper;
+package com.example.cc.service.mapper;
 
-import com.example.cc.dto.LocationDto;
+import com.example.cc.service.dto.LocationDto;
 import com.example.cc.model.Location;
 import java.util.List;
 

@@ -1,10 +1,8 @@
-package com.example.cc.dto;
+package com.example.cc.service.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class EmployeeDto {
 
     private Long id;

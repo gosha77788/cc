@@ -1,7 +1,7 @@
 package com.example.cc.controller;
 
-import com.example.cc.dto.WorkReportDto;
-import com.example.cc.mapper.WorkReportMapper;
+import com.example.cc.service.dto.WorkReportDto;
+import com.example.cc.service.mapper.WorkReportMapper;
 import com.example.cc.model.WorkReport;
 import com.example.cc.service.WorkReportService;
 import java.util.ArrayList;

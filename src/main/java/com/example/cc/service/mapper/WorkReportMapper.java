@@ -1,6 +1,6 @@
-package com.example.cc.mapper;
+package com.example.cc.service.mapper;
 
-import com.example.cc.dto.WorkReportDto;
+import com.example.cc.service.dto.WorkReportDto;
 import com.example.cc.model.WorkReport;
 import java.util.List;
 

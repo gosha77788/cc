@@ -1,7 +1,7 @@
 package com.example.cc.controller;
 
-import com.example.cc.dto.LocationDto;
-import com.example.cc.mapper.LocationMapper;
+import com.example.cc.service.dto.LocationDto;
+import com.example.cc.service.mapper.LocationMapper;
 import com.example.cc.model.Location;
 import com.example.cc.service.LocationService;
 import java.util.ArrayList;

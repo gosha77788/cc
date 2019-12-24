@@ -1,9 +1,9 @@
-package com.example.cc.mapper.impl;
+package com.example.cc.service.mapper.impl;
 
-import com.example.cc.dto.WorkReportDto;
-import com.example.cc.mapper.EmployeeMapper;
-import com.example.cc.mapper.ProductMapper;
-import com.example.cc.mapper.WorkReportMapper;
+import com.example.cc.service.dto.WorkReportDto;
+import com.example.cc.service.mapper.EmployeeMapper;
+import com.example.cc.service.mapper.ProductMapper;
+import com.example.cc.service.mapper.WorkReportMapper;
 import com.example.cc.model.WorkReport;
 import com.example.cc.service.EmployeeService;
 import com.example.cc.service.ProductService;

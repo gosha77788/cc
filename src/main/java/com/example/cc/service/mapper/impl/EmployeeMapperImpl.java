@@ -1,8 +1,8 @@
-package com.example.cc.mapper.impl;
+package com.example.cc.service.mapper.impl;
 
-import com.example.cc.dto.EmployeeDto;
-import com.example.cc.mapper.EmployeeMapper;
-import com.example.cc.mapper.LocationMapper;
+import com.example.cc.service.dto.EmployeeDto;
+import com.example.cc.service.mapper.EmployeeMapper;
+import com.example.cc.service.mapper.LocationMapper;
 import com.example.cc.model.Employee;
 import com.example.cc.service.LocationService;
 import java.util.List;
