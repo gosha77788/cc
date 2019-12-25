@@ -1,6 +1,7 @@
 package com.example.cc.controller;
 
 import com.example.cc.model.Authority;
+import com.example.cc.model.User;
 import com.example.cc.service.UserService;
 import com.example.cc.service.dto.UserDto;
 import com.example.cc.service.mapper.UserMapper;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -104,10 +106,19 @@ class UserResourceControllerTest {
     }
 
     @Test
-    void testGetUser() {
-//        UserDto userDto = buildUserDto(1L);
-//
-//        when(userService.findUser(userDto.getLogin())).thenReturn(userDto);
+    void testGetUser() throws Exception {
+        UserDto userDto = buildUserDto(1L);
+
+        when(userService.findUser(userDto.getLogin())).thenReturn(Optional.of(new User()));
+
+        mockMvc.perform(get(URL))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(1L))
+                .andExpect(jsonPath("$.login").value(DEFAULT_LOGIN))
+                .andExpect(jsonPath("$.password").value(DEFAULT_PASSWORD))
+                .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL))
+                .andExpect(jsonPath("$.firstName").value(DEFAULT_FIRST_NAME))
+                .andExpect(jsonPath("$.lastName").value(DEFAULT_LAST_NAME));
     }
 
     @Test
