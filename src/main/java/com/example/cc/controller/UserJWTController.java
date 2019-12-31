@@ -1,8 +1,8 @@
 package com.example.cc.controller;
 
-import com.example.cc.model.vm.LoginVM;
-import com.example.cc.security.JWTFilter;
-import com.example.cc.security.TokenProvider;
+import com.example.cc.security.jwt.JWTFilter;
+import com.example.cc.security.jwt.TokenProvider;
+import com.example.cc.service.vm.LoginVM;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

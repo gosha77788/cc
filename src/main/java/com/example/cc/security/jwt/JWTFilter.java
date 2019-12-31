@@ -1,4 +1,4 @@
-package com.example.cc.security;
+package com.example.cc.security.jwt;
 
 import java.io.IOException;
 import javax.servlet.FilterChain;

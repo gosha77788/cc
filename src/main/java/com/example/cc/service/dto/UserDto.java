@@ -19,10 +19,9 @@ public class UserDto {
     @Email
     private String email;
 
-    private String password;
     private String firstName;
     private String lastName;
-    private boolean activated = true;
+    private boolean activated = false;
     private Set<String> authorities;
 
     public UserDto() {
@@ -32,7 +31,6 @@ public class UserDto {
         this.id = user.getId();
         this.login = user.getLogin();
         this.email = user.getEmail();
-        this.password = user.getPassword();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.activated = user.isActivated();

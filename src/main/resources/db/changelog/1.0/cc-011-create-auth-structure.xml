@@ -50,4 +50,10 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="2019-12-25-14-22-00" author="YuryGovorushkin">
+        <addColumn tableName="cc_user">
+            <column name="activation_key" type="varchar(200)"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>

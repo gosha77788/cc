@@ -37,7 +37,8 @@ public class User {
 
     private String firstName;
     private String lastName;
-    private boolean activated = true;
+    private String activationKey;
+    private boolean activated = false;
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)

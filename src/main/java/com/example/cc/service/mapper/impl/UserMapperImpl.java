@@ -22,19 +22,7 @@ public class UserMapperImpl implements UserMapper {
     }
 
     public UserDto toUserDto(User user) {
-        UserDto userDto = new UserDto();
-        userDto.setId(user.getId());
-        userDto.setLogin(user.getLogin());
-        userDto.setPassword(user.getPassword());
-        userDto.setFirstName(user.getFirstName());
-        userDto.setLastName(user.getLastName());
-        userDto.setEmail(user.getEmail());
-        userDto.setActivated(user.isActivated());
-        userDto.setAuthorities(user.getAuthorities()
-                .stream()
-                .map(Authority::getName)
-                .collect(Collectors.toSet()));
-        return userDto;
+        return new UserDto(user);
     }
 
     public User toUser(UserDto userDto) {
@@ -47,7 +35,6 @@ public class UserMapperImpl implements UserMapper {
             user.setFirstName(userDto.getFirstName());
             user.setLastName(userDto.getLastName());
             user.setEmail(userDto.getEmail());
-            user.setPassword(userDto.getPassword());
             user.setActivated(userDto.isActivated());
             Set<Authority> authorities = this.authoritiesFromStrings(userDto.getAuthorities());
             user.setAuthorities(authorities);

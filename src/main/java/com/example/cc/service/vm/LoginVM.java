@@ -1,4 +1,4 @@
-package com.example.cc.model.vm;
+package com.example.cc.service.vm;
 
 import javax.validation.constraints.NotNull;
 import lombok.Data;
