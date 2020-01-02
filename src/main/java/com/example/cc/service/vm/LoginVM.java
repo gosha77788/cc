@@ -11,6 +11,4 @@ public class LoginVM {
 
     @NotNull
     private String password;
-
-    private Boolean rememberMe;
 }

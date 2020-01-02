@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -22,32 +23,23 @@ public class TokenProvider implements InitializingBean {
 
     private static final String AUTHORITIES_KEY = "auth";
 
-    private String secret = "NmZkOWE0NzJhNzk1NjQ1ZmU0MzYxYTAwNTcxYTY2YjQ1MTVkMGRjYjkwYTE1ZGVlMDQ2YzgwNTlhNzM4YTEyYjViNzk4OTdlMGVhMTY4NzM1ZmJmMDg2MWVkM2M5ZWJlNTk1ZTk2YzZjYTI0ZjQzODdiODMzNWUyNWQwNTc2MWQ=";
+    @Value("${jwt.token.secret}")
+    private String secret;
 
+    @Value("${jwt.token.time}")
     private long tokenValidityInMilliseconds;
-
-    private long tokenValidityInMillisecondsForRememberMe;
-
 
     @Override
     public void afterPropertiesSet() {
         this.secret = Base64.getEncoder().encodeToString(secret.getBytes());
-        this.tokenValidityInMilliseconds = 1000L * 86400L;
-        this.tokenValidityInMillisecondsForRememberMe = 1000L * 259200L;
     }
 
-    public String createToken(Authentication authentication, boolean rememberMe) {
+    public String createToken(Authentication authentication) {
         String authority = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.joining(","));
 
-        long now = new Date().getTime();
-        Date validity;
-        if (rememberMe) {
-            validity = new Date(now + this.tokenValidityInMillisecondsForRememberMe);
-        } else {
-            validity = new Date(now + this.tokenValidityInMilliseconds);
-        }
+        Date validity = new Date(new Date().getTime() + this.tokenValidityInMilliseconds);
 
         return Jwts.builder()
                 .setSubject(authentication.getName())
