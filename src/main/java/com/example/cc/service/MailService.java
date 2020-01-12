@@ -1,6 +1,5 @@
 package com.example.cc.service;
 
-
 import com.example.cc.model.User;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
@@ -14,7 +13,6 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring5.SpringTemplateEngine;
-
 
 @Service
 public class MailService {
