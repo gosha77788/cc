@@ -6,6 +6,7 @@ import java.util.Locale;
 import javax.mail.internet.MimeMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -19,10 +20,17 @@ public class MailService {
 
     private final Logger log = LoggerFactory.getLogger(MailService.class);
 
-    private static final String USER = "user";
-    private static final String BASE_URL = "baseUrl";
-    private static final String FROM = "cc";
-    private static final String BASE_URL_VALUE = "http://localhost:8080/";
+    @Value("${mail.service.user}")
+    private static String USER;
+
+    @Value("${mail.service.baseurl}")
+    private static String BASE_URL;
+
+    @Value("${mail.service.from}")
+    private static String FROM;
+
+    @Value("${mail.service.baseurl.value}")
+    private static String BASE_URL_VALUE;
 
     private final JavaMailSender javaMailSender;
     private final MessageSource messageSource;

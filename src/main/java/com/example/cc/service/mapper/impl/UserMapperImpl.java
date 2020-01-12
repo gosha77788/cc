@@ -22,7 +22,18 @@ public class UserMapperImpl implements UserMapper {
     }
 
     public UserDto toUserDto(User user) {
-        return new UserDto(user);
+        UserDto userDto = new UserDto();
+        userDto.setId(user.getId());
+        userDto.setLogin(user.getLogin());
+        userDto.setFirstName(user.getFirstName());
+        userDto.setLastName(user.getLastName());
+        userDto.setEmail(user.getEmail());
+        userDto.setActivated(user.isActivated());
+        userDto.setAuthorities(user.getAuthorities()
+                .stream()
+                .map(Authority::getName)
+                .collect(Collectors.toSet()));
+        return userDto;
     }
 
     public User toUser(UserDto userDto) {
