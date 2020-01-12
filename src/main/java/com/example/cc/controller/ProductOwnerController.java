@@ -1,10 +1,10 @@
 package com.example.cc.controller;
 
-import com.example.cc.dto.ProductOwnerDto;
 import com.example.cc.exception.CreatedEntityIdException;
 import com.example.cc.exception.UpdatedEntityIdException;
-import com.example.cc.mapper.ProductOwnerMapper;
 import com.example.cc.service.ProductOwnerService;
+import com.example.cc.service.dto.ProductOwnerDto;
+import com.example.cc.service.mapper.ProductOwnerMapper;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

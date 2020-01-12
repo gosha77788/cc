@@ -1,7 +1,7 @@
 package com.example.cc.controller;
 
-import com.example.cc.dto.ProductOwnerDto;
-import com.example.cc.mapper.ProductOwnerMapper;
+import com.example.cc.service.dto.ProductOwnerDto;
+import com.example.cc.service.mapper.ProductOwnerMapper;
 import com.example.cc.model.ProductOwner;
 import com.example.cc.service.ProductOwnerService;
 import java.util.ArrayList;

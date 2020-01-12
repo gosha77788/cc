@@ -1,10 +1,10 @@
 package com.example.cc.controller;
 
-import com.example.cc.dto.LocationDto;
 import com.example.cc.exception.CreatedEntityIdException;
 import com.example.cc.exception.UpdatedEntityIdException;
-import com.example.cc.mapper.LocationMapper;
 import com.example.cc.service.LocationService;
+import com.example.cc.service.dto.LocationDto;
+import com.example.cc.service.mapper.LocationMapper;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

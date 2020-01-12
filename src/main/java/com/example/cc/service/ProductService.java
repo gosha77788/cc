@@ -17,7 +17,8 @@ public class ProductService {
     }
 
     public Product getProduct(Long id) {
-        return productRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+        return productRepository.findById(id)
+                .orElseThrow(IllegalArgumentException::new);
     }
 
     public void saveProduct(Product product) {
