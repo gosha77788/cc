@@ -21,16 +21,16 @@ public class MailService {
     private final Logger log = LoggerFactory.getLogger(MailService.class);
 
     @Value("${mail.service.user}")
-    private static String USER;
+    private String USER;
 
     @Value("${mail.service.baseurl}")
-    private static String BASE_URL;
+    private String BASE_URL;
 
     @Value("${mail.service.from}")
-    private static String FROM;
+    private String FROM;
 
     @Value("${mail.service.baseurl.value}")
-    private static String BASE_URL_VALUE;
+    private String BASE_URL_VALUE;
 
     private final JavaMailSender javaMailSender;
     private final MessageSource messageSource;
